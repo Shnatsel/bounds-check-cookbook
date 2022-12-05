@@ -1,8 +1,8 @@
 // copies the code of the function into the caller and optimizes them together
 #[inline(always)] // used to be #[inline(never)]
 fn elements_are_equal(slice1: &[u64], slice2: &[u64], index: usize) -> bool {
-    // This is now a standalone function, and there is no constraint on 
-    // how it can be called! Bounds checks are back!
+    // we can no longer view the assembly here because of #[inline(always)]
+    // but we can look at the result of inlining it in is_fibonacci()
     slice1[index] == slice2[index]
 }
 
@@ -13,6 +13,7 @@ fn is_fibonacci(input: &[u64], fibonacci: &[u64]) -> bool {
     let fibonacci = &fibonacci[..input.len()];
 
     for i in 0..input.len() {
+        // No bounds checks here!
         if elements_are_equal(input, fibonacci, i) {
             return false;
         }
