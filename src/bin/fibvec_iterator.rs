@@ -1,3 +1,5 @@
+// Inspect the resulting assembly using:
+// cargo asm --rust --bin fibvec_iterator fibonacci_vec
 #[inline(never)] // so that we can easily view the assembly
 fn fibonacci_vec(length: usize) -> Vec<u64> {
     let mut fib = vec![0; length];

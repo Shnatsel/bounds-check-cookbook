@@ -4,6 +4,8 @@ const FIBONACCI_NUMS: usize = 100;
 // to make our custom bounds checks really cheap
 const LOOKUP_TABLE_SIZE: usize = FIBONACCI_NUMS.next_power_of_two();
 
+// Inspect the resulting assembly using:
+// cargo asm --rust --bin nth_errorless_stack nth_fibonacci
 #[inline(never)] // so that we can easily view the assembly
 fn nth_fibonacci(n: usize, fibonacci: &[u64; LOOKUP_TABLE_SIZE]) -> u64 {
     // we're going to blithely ignore any errors further on

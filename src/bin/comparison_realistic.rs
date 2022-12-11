@@ -1,3 +1,5 @@
+// Inspect the resulting assembly using:
+// cargo asm --rust --bin comparison_realistic is_fibonacci
 #[inline(never)] // so that we can easily view the assembly
 fn is_fibonacci(input: &[u64], fibonacci: &[u64]) -> bool {
     input == &fibonacci[..input.len()]

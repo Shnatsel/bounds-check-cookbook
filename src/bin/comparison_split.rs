@@ -1,3 +1,5 @@
+// Inspect the resulting assembly using:
+// cargo asm --rust --bin comparison_split elements_are_equal
 #[inline(never)] // so that we can easily view the assembly
 fn elements_are_equal(slice1: &[u64], slice2: &[u64], index: usize) -> bool {
     // This is now a standalone function, and there is no constraint on 

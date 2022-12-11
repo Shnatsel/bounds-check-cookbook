@@ -1,4 +1,4 @@
-// copies the code of the function into the caller and optimizes them together
+// #[inline(always)] copies the code of the function into the caller and optimizes them together
 #[inline(always)] // used to be #[inline(never)]
 fn elements_are_equal(slice1: &[u64], slice2: &[u64], index: usize) -> bool {
     // we can no longer view the assembly here because of #[inline(always)]
@@ -6,6 +6,8 @@ fn elements_are_equal(slice1: &[u64], slice2: &[u64], index: usize) -> bool {
     slice1[index] == slice2[index]
 }
 
+// Inspect the resulting assembly using:
+// cargo asm --rust --bin comparison_split_inline is_fibonacci
 #[inline(never)] // so that we can easily view the assembly
 fn is_fibonacci(input: &[u64], fibonacci: &[u64]) -> bool {
     // Cut off one slice up to the length of the other,

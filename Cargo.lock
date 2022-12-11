@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "bounds"
+name = "bounds-check-cookbook"
 version = "0.1.0"

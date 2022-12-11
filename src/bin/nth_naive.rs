@@ -1,6 +1,8 @@
 // It's now hardcoded how many numbers fibonacci_array() calculates
 const FIBONACCI_NUMS: usize = 100;
 
+// Inspect the resulting assembly using:
+// cargo asm --rust --bin nth_naive nth_fibonacci
 #[inline(never)] // so that we can easily view the assembly
 fn nth_fibonacci(n: usize, fibonacci: &[u64]) -> u64 {
     fibonacci[n]
