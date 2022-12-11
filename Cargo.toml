@@ -1,12 +1,14 @@
 [package]
-name = "bounds"
+name = "bounds-check-cookbook"
 version = "0.1.0"
 edition = "2021"
-
+publish = false
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-
+# None
 
 [profile.release]
+# Include complete debug symbols in the generated binary.
+# `cargo asm` already sets it internally, but this is useful for profiling.
 debug = true
