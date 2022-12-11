@@ -5,7 +5,7 @@ fn fibonacci_vec(length: usize) -> Vec<u64> {
     let mut fib = vec![0; length];
     
     if length > 1 {
-        fib[1] = 1; // indexing! bounds check! But just once, so it's okay
+        fib[1] = 1;
     }
     if length > 2 {
         for i in 2..length {
