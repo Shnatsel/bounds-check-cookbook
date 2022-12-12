@@ -4,6 +4,7 @@
 fn is_fibonacci(input: &[u64], fibonacci: &[u64]) -> bool {
     // Cut off one slice up to the length of the other,
     // so that the compiler knows the lengths are the same
+    // before we enter the hot loop
     let fibonacci = &fibonacci[..input.len()];
 
     for i in 0..input.len() {
