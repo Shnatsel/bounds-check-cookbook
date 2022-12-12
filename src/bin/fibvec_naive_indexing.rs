@@ -2,6 +2,9 @@
 // cargo asm --rust --bin fibvec_naive_indexing fibonacci_vec
 #[inline(never)] // so that we can easily view the assembly
 fn fibonacci_vec(length: usize) -> Vec<u64> {
+    // Allocate the full lenght up front to avoid costly reallocations.
+    // Also, `vec![0; length]` just requests zeroed memory from the OS,
+    // which makes it free - the OS usually has some zeroed memory on hand
     let mut fib = vec![0; length];
     
     if length > 1 {
