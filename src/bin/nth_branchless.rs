@@ -7,7 +7,7 @@ const FIBONACCI_NUMS: usize = 100;
 fn nth_fibonacci(n: usize, fibonacci: &[u64]) -> u64 {
     // Instead of panicking, return a bogus value.
     // This this gets optimized into a conditional move
-    // instead of a branch instruction, which is cheaper
+    // instead of a branch instruction, which can be cheaper
     *fibonacci.get(n).unwrap_or(&0)
 }
 
