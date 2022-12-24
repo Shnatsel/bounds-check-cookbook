@@ -5,6 +5,10 @@ const FIBONACCI_NUMS: usize = 100;
 // cargo asm --rust --bin nth_branchless nth_fibonacci
 #[inline(never)] // so that we can easily view the assembly
 fn nth_fibonacci(n: usize, fibonacci: &[u64]) -> u64 {
+    // we're going to blithely ignore any errors further on
+    // to squeeze out every last bit of performance,
+    // but that's no excuse not to sanity-check in tests
+    debug_assert!(n < FIBONACCI_NUMS);
     // Instead of panicking, return a bogus value.
     // This this gets optimized into a conditional move
     // instead of a branch instruction, which can be cheaper
