@@ -11,7 +11,9 @@ fn nth_fibonacci(n: usize, fibonacci: &[u64]) -> u64 {
     debug_assert!(n < FIBONACCI_NUMS);
     // Instead of panicking, return a bogus value.
     // This this gets optimized into a conditional move
-    // instead of a branch instruction, which can be cheaper
+    // instead of a branch instruction.
+    // This is usually slightly slower than a branch
+    // because the branch is perfectly predictable
     *fibonacci.get(n).unwrap_or(&0)
 }
 
