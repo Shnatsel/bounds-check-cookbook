@@ -22,6 +22,11 @@ fn nth_fibonacci(n: usize, fibonacci: &[u64; LOOKUP_TABLE_SIZE]) -> u64 {
 
 fn fibonacci_array() -> [u64; LOOKUP_TABLE_SIZE] {
     let length = FIBONACCI_NUMS;
+    // The array is allocated on the stack.
+    // The syntax happens to be more terse
+    // than when doing the same on the heap,
+    // but this will overflow the stack
+    // given very large lookup table sizes.
     let mut fib = [0; LOOKUP_TABLE_SIZE];
     if length > 1 {
         fib[1] = 1;
